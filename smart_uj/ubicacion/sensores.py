@@ -1,4 +1,5 @@
 import zmq
+import models
 
 
 class ubicacion:
@@ -9,7 +10,7 @@ class ubicacion:
     def socket_config(self):
         context = zmq.Context()
         self.socket = context.socket(zmq.SUB)
-        self.socket.connect('tcp://127.0.0.1:6501') # TODO change to the correct ip and port
+        self.socket.connect('tcp://127.0.0.1:6501')  # TODO change to the correct ip and port
         self.socket.setsockopt_string(zmq.SUBSCRIBE, "")
 
     # Open the socket
@@ -26,6 +27,7 @@ class ubicacion:
             id_usuario = id_usuario.decode("utf-8")
             ip_publica = ip_publica.decode("utf-8")
             hora = hora.decode("utf-8")
+            models.create_ubicacion(coordenada_x, coordenada_y, id_usuario, ip_publica, hora)
 
 
 if __name__ == "__main__":

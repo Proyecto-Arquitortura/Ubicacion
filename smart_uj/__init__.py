@@ -9,7 +9,7 @@ from flask_cors import CORS
 
 
 """ Globally accessible libraries """
-db = MongoEngine()
+db = SQLAlchemy()
 
 
 def init_app(config_file_path: str = "settings.py", **config: Any) -> Flask:
