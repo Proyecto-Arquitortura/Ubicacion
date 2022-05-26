@@ -6,7 +6,7 @@ DEBUG = pconfig("DEBUG",
 VERSION = pconfig("VERSION",
                   default="2.4.0")
 
-# Change this to the database you want to use
+# TODO: Change this to the database you want to use
 SQLALCHEMY_DATABASE_URI = pconfig("SQLALCHEMY_DATABASE_URI",
                                   default="postgresql://postgres:postgres@localhost:5432/smart_uj")
 

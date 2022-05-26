@@ -1,4 +1,5 @@
 from smart_uj import db
+import datetime
 
 
 class Ubicacion(db.Model):
@@ -41,6 +42,7 @@ def get_ubicacion_id(id):
 
 
 def create_ubicacion(coordenada_x, coordenada_y, id_usuario, ip_publica, hora):
+    hora = datetime.datetime.strptime(hora, "%H:%M:%S")
     ubicacion = Ubicacion(coordenada_x, coordenada_y, id_usuario, ip_publica, hora)
     db.session.add(ubicacion)
     db.session.commit()
