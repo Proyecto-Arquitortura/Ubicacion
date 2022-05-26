@@ -1,10 +1,17 @@
 from flask import Blueprint, make_response, jsonify, request, abort
 import _thread
 from . import models
-from sensores import ubicacion as ubicacion_sensores
+from .sensores import ubicacion as ubicacion_sensores
 
 
 ubicacion_bp = Blueprint('ubicacion', __name__)
+
+
+@ubicacion_bp.route('/', methods=['GET', 'OPTIONS'])
+@ubicacion_bp.route('/ping', methods=['GET', 'OPTIONS'])
+@ubicacion_bp.route('/heathcheck', methods=['GET', 'OPTIONS'])
+def heathcheck():
+    return make_response(jsonify({"Mensaje": "Ok"}), 200)
 
 
 # Retorna todas las ubicaciones

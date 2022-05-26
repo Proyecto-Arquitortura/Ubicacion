@@ -2,12 +2,12 @@ from smart_uj import db
 
 
 class Ubicacion(db.Model):
-    id = db.column(db.Integer, primary_key=True)
-    coordenada_x = db.column(db.Float)
-    coordenada_y = db.column(db.Float)
-    id_usuario = db.column(db.Integer, db.ForeignKey('usuario.id'), nullable=False)
-    ip_publica = db.column(db.String(50))
-    hora = db.column(db.DateTime)
+    id = db.Column(db.Integer, primary_key=True)
+    coordenada_x = db.Column(db.Float)
+    coordenada_y = db.Column(db.Float)
+    id_usuario = db.Column(db.Integer, db.ForeignKey('usuario.id'), nullable=False)
+    ip_publica = db.Column(db.String(50))
+    hora = db.Column(db.DateTime)
 
     def __init__(self, coordenada_x, coordenada_y, id_usuario, ip_publica, hora):
         self.coordenada_x = coordenada_x

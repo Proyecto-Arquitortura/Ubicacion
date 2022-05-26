@@ -1,5 +1,5 @@
 import zmq
-import models
+from . import models
 
 
 class ubicacion:
