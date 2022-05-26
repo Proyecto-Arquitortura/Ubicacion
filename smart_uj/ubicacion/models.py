@@ -29,14 +29,19 @@ class Ubicacion(db.Model):
             'hora': self.hora.strftime("%H:%M:%S")
         }
 
+
 def get_ubicacion():
-    return None
+    ubicaciones = Ubicacion.query.all()
+    return ubicaciones
 
 
 def get_ubicacion_id(id):
-    return None
+    ubicacion = Ubicacion.query.filter_by(id_suario=id).first()
+    return ubicacion
 
 
 def create_ubicacion(coordenada_x, coordenada_y, id_usuario, ip_publica, hora):
-    return None
-
+    ubicacion = Ubicacion(coordenada_x, coordenada_y, id_usuario, ip_publica, hora)
+    db.session.add(ubicacion)
+    db.session.commit()
+    return ubicacion
