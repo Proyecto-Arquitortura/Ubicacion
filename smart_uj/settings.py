@@ -1,16 +1,17 @@
 from prettyconf import config as pconfig
 
-DEBUG = pconfig("DEBUG", default=False)
+DEBUG = pconfig("DEBUG",
+                default=False)
 
-VERSION = pconfig("VERSION", default="2.4.0")
+VERSION = pconfig("VERSION",
+                  default="2.4.0")
 
-MONGODB_SETTINGS = {
-    'host': pconfig("MONGODB_HOST", default='mongodb+srv://evadb.l657k.mongodb.net/EvaDB'),
-    'port': pconfig("MONGODB_PORT", default=27017),
-    'username': pconfig("MONGODB_USERNAME", default='oscar'),
-    'password': pconfig("MONGODB_PASSWORD", default='iwCTSZT1h9Ky3FgQ'),
-}
+# Change this to the database you want to use
+SQLALCHEMY_DATABASE_URI = pconfig("SQLALCHEMY_DATABASE_URI",
+                                  default="postgresql://postgres:postgres@localhost:5432/smart_uj")
 
-SECRET_KEY = pconfig("SECRET_KEY", default="iwCTSZT1h9Ky3FgQ")
+SECRET_KEY = pconfig("SECRET_KEY",
+                     default="smart_uj?")
 
-JSONIFY_PRETTYPRINT_REGULAR = pconfig("JSONIFY_PRETTYPRINT_REGULAR", default=True)
+JSONIFY_PRETTYPRINT_REGULAR = pconfig("JSONIFY_PRETTYPRINT_REGULAR",
+                                      default=True)

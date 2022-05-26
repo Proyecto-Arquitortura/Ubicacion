@@ -8,6 +8,7 @@ prettyconf = "*"
 gunicorn = "*"
 flask = "*"
 flask-cors = "*"
+zmq = "*"
 
 [dev-packages]
 
