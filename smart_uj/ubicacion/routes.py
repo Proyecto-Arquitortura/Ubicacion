@@ -1,6 +1,7 @@
 from flask import Blueprint, make_response, jsonify, request, abort
-
+import _thread
 from . import models
+from sensores import ubicacion as ubicacion_sensores
 
 
 ubicacion_bp = Blueprint('ubicacion', __name__)
@@ -41,5 +42,19 @@ def create_ubicacion(id):
         except Exception as e:
             print(e)
             return make_response(jsonify({"Mensaje": e}), 500)
+    if request.method == 'OPTIONS':
+        return make_response(jsonify({"Mensaje": "OK"}), 200)
+
+
+# Recibe las ubicaciones de los sensores
+@ubicacion_bp.route('/recibir_ubicaciones', methods=['GET', 'OPTIONS'])
+def recibir_ubicaciones():
+    def recibir_ubicaciones_thread():
+        ubicacion_data = ubicacion_sensores()
+        ubicacion_data.socket_config()
+        ubicacion_data.open()
+    if request.method == 'GET':
+        _thread.start_new_thread(recibir_ubicaciones_thread, ())
+        return make_response(jsonify({"Mensaje": "Recibiendo ubicaciones..."}), 200)
     if request.method == 'OPTIONS':
         return make_response(jsonify({"Mensaje": "OK"}), 200)
