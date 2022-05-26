@@ -1,9 +1,6 @@
 from prettyconf import config as pconfig
-from datetime import timedelta
 
 DEBUG = pconfig("DEBUG", default=False)
-
-SENTRY_DSN = pconfig("SENTRY_DSN", default=None)
 
 VERSION = pconfig("VERSION", default="2.4.0")
 
@@ -15,9 +12,5 @@ MONGODB_SETTINGS = {
 }
 
 SECRET_KEY = pconfig("SECRET_KEY", default="iwCTSZT1h9Ky3FgQ")
-
-JWT_SECRET_KEY = pconfig("JWT_SECRET_KEY", default="iwCTSZT1h9Ky3FgQ")
-JWT_EXPIRATION_DELTA = pconfig("JWT_EXPIRATION_DELTA", default=timedelta(days=1))
-JWT_REFRESH_EXPIRATION_DELTA = pconfig("JWT_REFRESH_EXPIRATION_DELTA", default=timedelta(days=30))
 
 JSONIFY_PRETTYPRINT_REGULAR = pconfig("JSONIFY_PRETTYPRINT_REGULAR", default=True)

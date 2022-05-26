@@ -1,5 +1,5 @@
 # Run this file for local running of the app
-from ubicacion import init_app
+from smart_uj import init_app
 
 app = init_app(DEBUG=True)
 
