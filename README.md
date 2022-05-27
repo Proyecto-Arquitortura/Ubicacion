@@ -44,7 +44,7 @@ pipenv run python runserver.py
 In this case I decided to use the Flask framework because it is a lightweight framework 
 which fits quite small projects like this one.
 Flask as such does not have a defined architecture. But in my case I made a prototype of 
-mvc but without the view, only with controller and model, adding a service that is the 
+MVC but without the view, only with controller and model, adding a service that is the 
 MQTT subscriber in the sensors.py section.
 
 The following is its deployment diagram:
