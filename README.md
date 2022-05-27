@@ -49,7 +49,7 @@ MQTT subscriber in the sensors.py section.
 
 The following is its deployment diagram:
 
-![img.png](img.png)
+![Deployment Diagram1](https://user-images.githubusercontent.com/38623131/170610085-8e843a17-765a-45ba-8d91-a2f6286bcd29.png)
 
 An additional feature of this component is that it is ready to be deployed on a Linux server 
 through ```Gunicorn``` which allows us to deploy with web workers.
