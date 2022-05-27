@@ -8,7 +8,8 @@ VERSION = pconfig("VERSION",
 
 # TODO: Change this to the database you want to use
 SQLALCHEMY_DATABASE_URI = pconfig("SQLALCHEMY_DATABASE_URI",
-                                  default="postgresql://postgres:postgres@localhost:5432/smart_uj")
+                                  default="mysql://@10.43.102.22:5432/")
+SQLALCHEMY_TRACK_MODIFICATIONS = pconfig("SQLALCHEMY_TRACK_MODIFICATIONS", default=True)
 
 SECRET_KEY = pconfig("SECRET_KEY",
                      default="smart_uj?")
